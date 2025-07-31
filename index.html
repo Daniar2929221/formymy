@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Для А</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe6f0, #fff0f5);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding-top: 80px;
+      overflow-x: hidden;
+    }
+
+    .heart {
+      font-size: 90px;
+      color: #ff69b4;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      animation: pulse 1.5s infinite;
+    }
+
+    .heart:hover {
+      transform: scale(1.2);
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #d63384;
+      animation: fade 2s infinite;
+    }
+
+    .message {
+      margin-top: 30px;
+      padding: 20px;
+      border: 2px dashed #ff69b4;
+      display: none;
+      width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 15px;
+      background: #fff;
+      font-size: 18px;
+      color: #ff1493;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    }
+
+    .flowers {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 30px;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(800px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fade {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Летающие цветочки -->
+  <div class="flowers">
+    <div class="flower" style="left: 10%;">🌸</div>
+    <div class="flower" style="left: 25%;">🌺</div>
+    <div class="flower" style="left: 40%;">🌼</div>
+    <div class="flower" style="left: 55%;">🌷</div>
+    <div class="flower" style="left: 70%;">💐</div>
+    <div class="flower" style="left: 85%;">🌻</div>
+  </div>
+
+  <!-- Сердечко -->
+  <div class="heart" onclick="showMessage()">💖</div>
+  <div class="hint">Нажми на него</div>
+
+  <!-- Сообщение -->
+  <div class="message" id="message">
+    С днём девушек лохушка.И я хотел сказать что ты стала для меня очень особенной за такое краткое время. И мне реально комфортно  с тобой ащатса. Ну в общем лав акниет
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    // Анимация цветочков (рандомное движение)
+    const flowers = document.querySelectorAll('.flower');
+    flowers.forEach(flower => {
+      const delay = Math.random() * 5;
+      const size = 25 + Math.random() * 20;
+      flower.style.animationDelay = delay + 's';
+      flower.style.fontSize = size + 'px';
+    });
+  </script>
+
+</body>
+</html>
